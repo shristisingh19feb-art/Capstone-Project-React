@@ -1,0 +1,317 @@
+/* ===== MOVIE MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.3s ease;
+}
+
+body.kids .modal-overlay {
+  background: rgba(80, 20, 120, 0.65);
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal {
+  background: var(--bg2);
+  border-radius: 20px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalSlideUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  scrollbar-width: thin;
+  scrollbar-color: var(--purple-main) transparent;
+}
+
+body.kids .modal {
+  border-color: rgba(236, 72, 153, 0.4);
+  border-radius: 24px;
+  background: #fff;
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(40px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);    }
+}
+
+/* ── Hero Image ── */
+.modal__hero {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+body.kids .modal__hero {
+  height: 260px;
+  border-radius: 24px 24px 0 0;
+}
+
+.modal__hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.modal:hover .modal__hero-img {
+  transform: scale(1.03);
+}
+
+.modal__hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, var(--bg2) 0%, transparent 60%);
+}
+
+body.kids .modal__hero-overlay {
+  background: linear-gradient(0deg, #fff 0%, transparent 60%);
+}
+
+/* ── Close Button ── */
+.modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+  font-family: sans-serif;
+}
+.modal__close:hover {
+  background: rgba(236, 72, 153, 0.75);
+  border-color: var(--pink-bright);
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* ── Kids Emoji Sticker ── */
+.modal__kids-sticker {
+  position: absolute;
+  bottom: 14px;
+  left: 20px;
+  font-size: 48px;
+  animation: stickerPop 0.5s cubic-bezier(0.34,1.56,0.64,1);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+  z-index: 2;
+}
+@keyframes stickerPop {
+  from { opacity: 0; transform: scale(0) rotate(-20deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0deg);  }
+}
+
+/* ── Body ── */
+.modal__body {
+  padding: 24px 32px 36px;
+}
+
+.modal__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--yellow-glow);
+  background: rgba(250, 204, 21, 0.1);
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  transition: all 0.3s;
+}
+
+body.kids .modal__badge {
+  color: var(--pink-bright);
+  background: rgba(236, 72, 153, 0.1);
+  border-color: rgba(236, 72, 153, 0.3);
+}
+
+.modal__title {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 5vw, 50px);
+  letter-spacing: 2px;
+  line-height: 1.05;
+  background: linear-gradient(135deg, var(--text-main) 0%, var(--pink-accent) 50%, var(--yellow-glow) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 18px;
+}
+
+body.kids .modal__title {
+  letter-spacing: 1px;
+  font-size: clamp(26px, 4vw, 42px);
+}
+
+/* ── Meta Pills ── */
+.modal__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.modal__pill {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid;
+}
+
+.modal__pill--rating {
+  color: #ffd700;
+  border-color: rgba(250, 204, 21, 0.4);
+  background: rgba(250, 204, 21, 0.1);
+}
+
+.modal__pill--genre {
+  color: var(--purple-accent);
+  border-color: rgba(168, 85, 247, 0.4);
+  background: rgba(168, 85, 247, 0.1);
+}
+
+body.kids .modal__pill--genre {
+  color: var(--purple-main);
+}
+
+.modal__pill--year {
+  color: var(--gray-2);
+  border-color: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+}
+
+body.kids .modal__pill--year {
+  color: var(--text-muted);
+  border-color: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.04);
+}
+
+.modal__pill--dur {
+  color: var(--pink-glow);
+  border-color: rgba(236, 72, 153, 0.35);
+  background: rgba(236, 72, 153, 0.08);
+}
+
+/* ── Description ── */
+.modal__desc {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--gray-1);
+  margin-bottom: 32px;
+}
+
+body.kids .modal__desc {
+  color: var(--text-main);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* ── Buttons ── */
+.modal__btns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.modal__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+  border-radius: 12px;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+body.kids .modal__btn {
+  border-radius: 25px;
+  font-family: var(--font-body);
+  font-weight: 800;
+}
+
+.modal__btn--play {
+  background: var(--grad-brand);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 24px rgba(236, 72, 153, 0.5);
+}
+.modal__btn--play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(236, 72, 153, 0.7);
+}
+
+.modal__btn--watchlist {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--gray-1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.modal__btn--watchlist:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+body.kids .modal__btn--watchlist {
+  color: var(--purple-main);
+  background: rgba(168, 85, 247, 0.08);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+body.kids .modal__btn--watchlist:hover {
+  background: rgba(168, 85, 247, 0.18);
+}
+
+.modal__btn--close {
+  background: transparent;
+  color: var(--gray-2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+}
+.modal__btn--close:hover {
+  color: var(--text-main);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+body.kids .modal__btn--close {
+  color: var(--text-muted);
+  border-color: rgba(0,0,0,0.1);
+}
+body.kids .modal__btn--close:hover {
+  color: var(--text-main);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .modal__body { padding: 16px 20px 28px; }
+  .modal__hero { height: 200px; }
+}

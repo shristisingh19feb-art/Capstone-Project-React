@@ -2,15 +2,14 @@
 .movie-card {
   flex: 0 0 auto;
   width: 220px;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: visible;
   cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
   position: relative;
   z-index: 1;
 }
 
-/* Scale up and lift on hover */
 .movie-card--hovered {
   transform: scale(1.1) translateY(-8px);
   z-index: 10;
@@ -21,15 +20,25 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  background: var(--dark-3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  background: var(--bg3);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
   transition: box-shadow 0.35s ease;
 }
 
+body.kids .movie-card__thumb {
+  border: 2px solid transparent;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
 .movie-card--hovered .movie-card__thumb {
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 0 2px rgba(236,72,153,0.5), var(--glow-pink);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.7), 0 0 0 2px rgba(236,72,153,0.5), var(--glow-pink);
+}
+
+body.kids .movie-card--hovered .movie-card__thumb {
+  border-color: var(--pink-bright);
+  box-shadow: 0 8px 30px rgba(236,72,153,0.35);
 }
 
 .movie-card__img {
@@ -50,7 +59,7 @@
   background: linear-gradient(
     180deg,
     transparent 20%,
-      rgba(20, 4, 36, 0.55) 55%,
+    rgba(20, 4, 36, 0.55) 55%,
     rgba(10, 2, 20, 0.92) 100%
   );
   display: flex;
@@ -71,22 +80,22 @@
   height: 52px;
   border-radius: 50%;
   background: var(--grad-brand);
-  color: var(--white);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  box-shadow: 0 0 20px rgba(236, 72, 153, 0.7), 0  0 40px rgba(124,58,237,0.4);
+  box-shadow: 0 0 20px rgba(236,72,153,0.7), 0 0 40px rgba(124,58,237,0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  padding-left: 3px; /* optical centering of play icon */
+  padding-left: 3px;
+  cursor: pointer;
 }
-
 .movie-card__play-btn:hover {
   transform: scale(1.12);
-  box-shadow: 0 0 30px rgba(249,115,22,0.8), 0 0 60px rgba(236,72,152,0.5);
+  box-shadow: 0 0 30px rgba(249,115,22,0.8), 0 0 60px rgba(236,72,153,0.5);
 }
 
-/* ── Action Buttons Row ── */
+/* ── Action Buttons ── */
 .movie-card__actions {
   position: absolute;
   bottom: 10px;
@@ -108,16 +117,16 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: var(--white);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(4px);
   transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  cursor: pointer;
 }
-
 .movie-card__action-btn:hover {
   background: rgba(236,72,153,0.4);
   border-color: var(--pink-bright);
@@ -133,11 +142,32 @@
   font-size: 11px;
   font-weight: 700;
   color: #ffd700;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0,0,0,0.75);
   padding: 3px 7px;
   border-radius: 10px;
   backdrop-filter: blur(4px);
   border: 1px solid rgba(250,204,21,0.35);
+}
+
+body.kids .movie-card__rating {
+  background: rgba(255,255,255,0.92);
+  color: #d97706;
+  border-color: rgba(251,191,36,0.5);
+}
+
+/* ── Emoji Badge (kids) ── */
+.movie-card__emoji-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 20px;
+  animation: badgeBounce 2s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+@keyframes badgeBounce {
+  0%,100% { transform: translateY(0);  }
+  50%      { transform: translateY(-4px); }
 }
 
 /* ── Info Section ── */
@@ -149,7 +179,7 @@
   font-family: var(--font-heading);
   font-size: 14px;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-main);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -158,6 +188,10 @@
 
 .movie-card--hovered .movie-card__title {
   color: var(--pink-glow);
+}
+
+body.kids .movie-card--hovered .movie-card__title {
+  color: var(--purple-main);
 }
 
 .movie-card__meta {
@@ -174,7 +208,6 @@
   color: var(--purple-accent);
   font-weight: 500;
 }
+body.kids .movie-card__genre { color: var(--purple-main); }
 
-.movie-card__dot {
-  color: var(--gray-3);
-}
+.movie-card__dot { color: var(--gray-3); }

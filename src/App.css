@@ -3,10 +3,10 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--dark-1);
+  background: var(--bg1);
+  transition: background 0.4s ease;
 }
 
 main {
   flex: 1;
-  padding-top: var(--nav-height);
 }

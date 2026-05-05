@@ -1,8 +1,7 @@
 import React from 'react';
 import './Footer.css';
 
-// ── Footer link data ─────────────────────────────────────────────────────────
- var FOOTER_COLUMNS = [
+var FOOTER_COLUMNS = [
   {
     heading: 'Explore',
     links: ['Movies', 'TV Series', 'Originals', 'Documentaries', 'Kids Zone'],
@@ -21,22 +20,22 @@ import './Footer.css';
   },
 ];
 
-// ── Footer Component ─────────────────────────────────────────────────────────
-function Footer() {
+function Footer({ isKids }) {
   return (
     <footer className="footer">
       <div className="footer__container">
 
-        {/* Top: logo + tagline + newsletter */}
         <div className="footer__top">
           <div className="footer__brand">
             <div className="footer__logo">
               <span className="footer__logo-icon">▶</span>
-              <span className="footer__logo-text"><span>SCREENIFY</span></span>
+              <span className="footer__logo-text">
+                {isKids ? 'Screenify 🌈' : 'SCREENIFY'}
+              </span>
             </div>
             <p className="footer__tagline">
-              Where Stories Came Alive.<br />
-               Step Inside,Let Moments Thrive .
+              Where Stories Come Alive.<br />
+              Step Inside, Let Moments Thrive.
             </p>
             <div className="footer__social">
               {['𝕏', 'IG', 'YT', 'FB'].map(function (s) {
@@ -49,7 +48,6 @@ function Footer() {
             </div>
           </div>
 
-          {/* Link columns */}
           <div className="footer__links-grid">
             {FOOTER_COLUMNS.map(function (col) {
               return (
@@ -70,16 +68,14 @@ function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="footer__divider"></div>
 
-        {/* Bottom bar */}
         <div className="footer__bottom">
           <p className="footer__copy">
             © {new Date().getFullYear()} SCREENIFY. All rights reserved.
           </p>
           <p className="footer__credit">
-            Where Stories Come Alive❤️
+            {isKids ? 'Made with 💖 for little dreamers!' : 'Where Stories Come Alive ❤️'}
           </p>
         </div>
       </div>
