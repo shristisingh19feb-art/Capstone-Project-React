@@ -2,7 +2,7 @@ import React from 'react';
 import './Footer.css';
 
 // ── Footer link data ─────────────────────────────────────────────────────────
-var FOOTER_COLUMNS = [
+ var FOOTER_COLUMNS = [
   {
     heading: 'Explore',
     links: ['Movies', 'TV Series', 'Originals', 'Documentaries', 'Kids Zone'],
@@ -32,11 +32,11 @@ function Footer() {
           <div className="footer__brand">
             <div className="footer__logo">
               <span className="footer__logo-icon">▶</span>
-              <span className="footer__logo-text">CineBlaze</span>
+              <span className="footer__logo-text"><span>SCREENIFY</span></span>
             </div>
             <p className="footer__tagline">
-              Stream thousands of movies and series.<br />
-              Anywhere. Anytime.
+              Where Stories Came Alive.<br />
+               Step Inside,Let Moments Thrive .
             </p>
             <div className="footer__social">
               {['𝕏', 'IG', 'YT', 'FB'].map(function (s) {
@@ -76,10 +76,10 @@ function Footer() {
         {/* Bottom bar */}
         <div className="footer__bottom">
           <p className="footer__copy">
-            © {new Date().getFullYear()} CineBlaze. All rights reserved.
+            © {new Date().getFullYear()} SCREENIFY. All rights reserved.
           </p>
           <p className="footer__credit">
-            Made with ❤️ for movie lovers
+            Where Stories Come Alive❤️
           </p>
         </div>
       </div>

@@ -61,7 +61,7 @@ function Hero() {
       <div
         className="hero__bg"
         style={{ backgroundImage: 'url(' + movie.image + ')' }}
-      ></div>
+      ></div>   
 
       {/* Dark overlay gradients */}
       <div className="hero__overlay"></div>

@@ -38,7 +38,7 @@ function Navbar() {
         {/* ── Logo ── */}
         <div className="navbar__logo">
           <span className="navbar__logo-icon">▶</span>
-          <span className="navbar__logo-text">CineBlaze</span>
+          <span className="navbar__logo-text">Screenify</span>
         </div>
 
         {/* ── Desktop Navigation Links ── */}
