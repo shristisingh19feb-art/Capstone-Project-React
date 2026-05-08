@@ -4,7 +4,7 @@ import Navbar   from './components/Navbar/Navbar';
 import Hero     from './components/Hero/Hero';
 import MovieRow from './components/MovieRow/MovieRow';
 import MovieModal from './components/Moviemodal/MovieModal';
-import Kidsbanner from './components/Kidsbanner/Kidsbanner';
+import Kidsbanner from './components/kidsbanner/Kidsbanner';
 import Footer   from './components/Footer/Footer';
 import './App.css';
 
