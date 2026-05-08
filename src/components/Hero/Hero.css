@@ -1,3 +1,6 @@
+/* ===== PAGE HERO (Movies / Series / Originals pages) ===== */
+/* Add these styles to your existing App.css file */
+
 /* ===== HERO SECTION ===== */
 .hero {
   position: relative;
@@ -261,5 +264,55 @@ body.kids .hero__btn { border-radius: 25px; font-family: var(--font-body); }
   .hero__dots {
     right: 24px;
     bottom: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.page-hero {
+  padding: 60px 48px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.page-hero__sub {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  color: var(--gray-2);
+  letter-spacing: 0.3px;
+}
+
+body.kids .page-hero__title {
+  font-size: clamp(28px, 4vw, 44px);
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 40px 20px 12px;
+  }
+  .page-hero__title {
+    font-size: 32px;
   }
 }
