@@ -4,7 +4,7 @@ import Navbar   from './components/Navbar/Navbar';
 import Hero     from './components/Hero/Hero';
 import MovieRow from './components/MovieRow/MovieRow';
 import MovieModal from './components/Moviemodal/MovieModal';
-import KidsBanner from './components/Kidsbanner/Kidsbanner';
+import Kidsbanner from './components/Kidsbanner/Kidsbanner';
 import Footer   from './components/Footer/Footer';
 import './App.css';
 
@@ -486,7 +486,7 @@ function HomePage({ isKids, openModal, showToast }) {
   return (
     <>
       <Hero isKids={isKids} onMovieClick={openModal} />
-      {isKids && <KidsBanner />}
+      {isKids && <Kidsbanner />}
       <MovieRow title={isKids ? '🔥 Trending Adventures' : '🔥 Trending Now'}         movies={trending}  isKids={isKids} onMovieClick={openModal} />
       <MovieRow title={isKids ? '✨ New Magical Releases' : '🆕 New Releases'}         movies={newItems}  isKids={isKids} onMovieClick={openModal} />
       <MovieRow title={isKids ? '🎬 Animated Classics' : '🎨 Top Animation'}          movies={animation} isKids={isKids} onMovieClick={openModal} />

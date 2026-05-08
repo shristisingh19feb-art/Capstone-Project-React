@@ -1,7 +1,7 @@
 import React from 'react';
 import './KidsBanner.css';
 
-function KidsBanner() {
+function Kidsbanner() {
   return (
     <div className="kids-banner">
       <div className="kids-banner__chars" aria-hidden="true">
@@ -17,4 +17,4 @@ function KidsBanner() {
   );
 }
 
-export default KidsBanner;
+export default Kidsbanner;
