@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-ro
 import Navbar   from './components/Navbar/Navbar';
 import Hero     from './components/Hero/Hero';
 import MovieRow from './components/MovieRow/MovieRow';
-import MovieModal from './components/MovieModal/MovieModal';
-import KidsBanner from './components/KidsBanner/KidsBanner';
+import MovieModal from './components/Moviemodal/MovieModal';
+import KidsBanner from './components/Kidsbanner/Kidsbanner';
 import Footer   from './components/Footer/Footer';
 import './App.css';
 
