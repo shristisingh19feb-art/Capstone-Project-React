@@ -1,5 +1,5 @@
 import React from 'react';
-import './KidsBanner.css';
+import './Kidsbanner.css';
 
 function Kidsbanner() {
   return (
